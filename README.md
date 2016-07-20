@@ -5,7 +5,7 @@ Based on [xxv](https://github.com/xxv)/[24AnalogWidget](https://github.com/xxv/2
 This is a super easy to implement and highly customizable analog clock library
 
 ##Dependency
-####Gradle dependency:
+Add this to your app build.gradle file
 ```` gradle
 dependencies {
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
