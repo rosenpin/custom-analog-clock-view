@@ -34,7 +34,7 @@ customAnalogClock.setAutoUpdate(true);
 <img src="http://i.imgur.com/mb08zMF.png" alt="Drawing" width="400" />
 
 #Customization
-You can completley change the look of the widget by using the init function:
+You can completely change the look of the widget by using the init function:
 ```java 
 init(Context context, @DrawableRes int watchFace, @DrawableRes int hourHand, @DrawableRes int minuteHand, int alpha, boolean is24, boolean hourOnTop)
 ``` 
