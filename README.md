@@ -1,4 +1,4 @@
-# custom-analog-clock-view
+# Custom Analog Clock View
 
 Based on [xxv](https://github.com/xxv)/[24AnalogWidget](https://github.com/xxv/24hAnalogWidget)
 
