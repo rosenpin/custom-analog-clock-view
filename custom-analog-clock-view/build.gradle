@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/rosenpin/custom-analog-clock-view'
     gitUrl = 'https://github.com/rosenpin/custom-analog-clock-view.git'
 
-    libraryVersion = '1.0'
+    libraryVersion = '1.01'
 
     developerId = 'rosenpin'
     developerName = 'Tomer Rosenfeld'
