@@ -16,16 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CustomAnalogClock customAnalogClock = (CustomAnalogClock) findViewById(R.id.analog_clock);
-        updateClock(customAnalogClock);
-    }
-
-    private void updateClock(final CustomAnalogClock customAnalogClockView) {
-        customAnalogClockView.setTime(Calendar.getInstance());
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                updateClock(customAnalogClockView);
-            }
-        }, 5000);
+        customAnalogClock.setAutoUpdate(true);
     }
 }

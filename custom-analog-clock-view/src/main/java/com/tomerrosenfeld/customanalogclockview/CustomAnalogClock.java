@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.View;
@@ -13,7 +14,6 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
-
 
 
 /**
@@ -41,6 +41,7 @@ public class CustomAnalogClock extends View {
     private int mRight;
     private boolean mSizeChanged;
     private HandsOverlay mHandsOverlay;
+    private boolean autoUpdate;
 
     public CustomAnalogClock(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -112,8 +113,19 @@ public class CustomAnalogClock extends View {
      */
     public void setTime(Calendar calendar) {
         mCalendar = calendar;
-
         invalidate();
+        if (autoUpdate) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setTime(Calendar.getInstance());
+                }
+            }, 5000);
+        }
+    }
+
+    public void setAutoUpdate(boolean autoUpdate) {
+        this.autoUpdate = autoUpdate;
     }
 
     /**
