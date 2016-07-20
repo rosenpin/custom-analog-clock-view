@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'custom-analog-clock-view'
+
+    publishedGroupId = 'com.tomerrosenfeld.customanalogclockview'
+    libraryName = 'custom-analog-clock-view'
+    artifact = 'custom-analog-clock-view'
+
+    libraryDescription = 'A customizable analog clock view'
+
+    siteUrl = 'https://github.com/rosenpin/custom-analog-clock-view'
+    gitUrl = 'https://github.com/rosenpin/custom-analog-clock-view.git'
+
+    libraryVersion = '1.0'
+
+    developerId = 'rosenpin'
+    developerName = 'Tomer Rosenfeld'
+    developerEmail = 'tomerosenfeld007@gmail.com'
+
+    licenseName = 'GPL-3.0'
+    licenseUrl = 'https://www.gnu.org/licenses/gpl.txt'
+    allLicenses = [" GPL-3.0"]
+}
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 24
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.1.0'
+}
+
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
