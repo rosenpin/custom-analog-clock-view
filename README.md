@@ -31,7 +31,7 @@ customAnalogClock.setAutoUpdate(true);
 
 ####And you're basically done!
 
-| Default clock |
+ Default clock 
 <img src="http://i.imgur.com/mb08zMF.png" alt="Drawing" width="400" />
 
 #Customization
