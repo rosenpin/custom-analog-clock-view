@@ -126,6 +126,7 @@ public class CustomAnalogClock extends View {
 
     public void setAutoUpdate(boolean autoUpdate) {
         this.autoUpdate = autoUpdate;
+        setTime(Calendar.getInstance());
     }
 
     /**
