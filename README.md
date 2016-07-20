@@ -7,8 +7,13 @@ This is a super easy to implement and highly customizable analog clock library
 ##Dependency
 Add this to your app build.gradle file
 ```` gradle
+repositories {
+    maven {
+        url 'https://dl.bintray.com/rosenpin/maven/'
+    }
+}
+
 dependencies {
-    ...
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
 }
 ````
