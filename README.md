@@ -8,7 +8,7 @@ This is a super easy to implement and highly customizable analog clock library
 ####Gradle dependency:
 ```` gradle
 dependencies {
-    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.0'
+    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
 }
 ````
 
