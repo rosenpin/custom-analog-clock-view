@@ -64,3 +64,7 @@ Using this library I was easily able to create these analog clock widgets:
 | Pebble Theme | S7 Theme | Default |
 |:-:|:-:|:-:|
 | ![Pebble Theme](http://i.imgur.com/w3jfrsT.png) | ![S7 Theme](http://i.imgur.com/1vjYhFd.png) | ![Flat style](http://i.imgur.com/AB2EIAD.png) |
+
+## Licensing
+Always On Display is licensed under the [GNU v3 Public License.](LICENSE)
+
