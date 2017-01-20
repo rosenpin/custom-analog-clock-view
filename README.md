@@ -1,5 +1,8 @@
 # Custom Analog Clock View
 
+[![JitPack](https://jitpack.io/v/rosenpin/custom-analog-clock-view.svg)](https://jitpack.io/#rosenpin/custom-analog-clock-view)
+[![Download](https://api.bintray.com/packages/rosenpin/maven/custom-analog-clock-view/images/download.svg) ](https://bintray.com/rosenpin/maven/custom-analog-clock-view/_latestVersion)
+
 Based on [xxv](https://github.com/xxv)/[24AnalogWidget](https://github.com/xxv/24hAnalogWidget)
 
 This is a super easy to implement and highly customizable analog clock library
