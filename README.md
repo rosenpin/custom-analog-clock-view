@@ -3,6 +3,7 @@
 [![JitPack](https://jitpack.io/v/rosenpin/custom-analog-clock-view.svg)](https://jitpack.io/#rosenpin/custom-analog-clock-view)
 [![Download](https://api.bintray.com/packages/rosenpin/maven/custom-analog-clock-view/images/download.svg) ](https://bintray.com/rosenpin/maven/custom-analog-clock-view/_latestVersion)
 [![Build Status](https://travis-ci.org/rosenpin/custom-analog-clock-view.svg?branch=master)](https://travis-ci.org/rosenpin/custom-analog-clock-view)
+<a target="_blank" href="https://www.paypal.me/javiersantos" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
 
 Based on [xxv](https://github.com/xxv)/[24AnalogWidget](https://github.com/xxv/24hAnalogWidget)
 
