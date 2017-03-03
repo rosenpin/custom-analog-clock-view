@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/rosenpin/custom-analog-clock-view'
     gitUrl = 'https://github.com/rosenpin/custom-analog-clock-view.git'
 
-    libraryVersion = '1.02'
+    libraryVersion = '1.03'
 
     developerId = 'rosenpin'
     developerName = 'Tomer Rosenfeld'
@@ -43,7 +43,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
 }
 
 // Place it at the end of the file
