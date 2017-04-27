@@ -9,7 +9,7 @@ Based on [xxv](https://github.com/xxv)/[24AnalogWidget](https://github.com/xxv/2
 
 This is a super easy to implement and highly customizable analog clock library
 
-##Dependency
+## Dependency
 Add this to your app build.gradle file
 ```` gradle
 dependencies {
@@ -18,7 +18,7 @@ dependencies {
 ````
 
 
-##How to use
+## How to use
 In your layout:
 ```xml
 <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock
@@ -33,12 +33,12 @@ CustomAnalogClock customAnalogClock = (CustomAnalogClock) findViewById(R.id.anal
 customAnalogClock.setAutoUpdate(true);
 ````
 
-####And you're basically done!
+#### And you're basically done!
 
  Default clock 
 <img src="http://i.imgur.com/mb08zMF.png" alt="Drawing" width="400" />
 
-#Customization
+# Customization
 You can completely change the look of the widget by using the init function:
 ```java 
 init(Context context, @DrawableRes int watchFace, @DrawableRes int hourHand, @DrawableRes int minuteHand, int alpha, boolean is24, boolean hourOnTop)
