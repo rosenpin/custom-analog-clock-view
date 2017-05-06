@@ -1,19 +1,24 @@
 # Custom Analog Clock View
 
+[![JitPack](https://jitpack.io/v/rosenpin/custom-analog-clock-view.svg)](https://jitpack.io/#rosenpin/custom-analog-clock-view)
+[![Download](https://api.bintray.com/packages/rosenpin/maven/custom-analog-clock-view/images/download.svg) ](https://bintray.com/rosenpin/maven/custom-analog-clock-view/_latestVersion)
+[![Build Status](https://travis-ci.org/rosenpin/custom-analog-clock-view.svg?branch=master)](https://travis-ci.org/rosenpin/custom-analog-clock-view)
+<a target="_blank" href="https://www.paypal.me/javiersantos" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
+
 Based on [xxv](https://github.com/xxv)/[24AnalogWidget](https://github.com/xxv/24hAnalogWidget)
 
 This is a super easy to implement and highly customizable analog clock library
 
-##Dependency
+## Dependency
 Add this to your app build.gradle file
 ```` gradle
 dependencies {
-    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
+    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.04'
 }
 ````
 
 
-##How to use
+## How to use
 In your layout:
 ```xml
 <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock
@@ -28,12 +33,12 @@ CustomAnalogClock customAnalogClock = (CustomAnalogClock) findViewById(R.id.anal
 customAnalogClock.setAutoUpdate(true);
 ````
 
-####And you're basically done!
+#### And you're basically done!
 
  Default clock 
 <img src="http://i.imgur.com/mb08zMF.png" alt="Drawing" width="400" />
 
-#Customization
+# Customization
 You can completely change the look of the widget by using the init function:
 ```java 
 init(Context context, @DrawableRes int watchFace, @DrawableRes int hourHand, @DrawableRes int minuteHand, int alpha, boolean is24, boolean hourOnTop)
