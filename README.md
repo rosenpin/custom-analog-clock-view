@@ -24,7 +24,8 @@ In your layout:
 <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock
         android:id="@+id/analog_clock"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" 
+        app:default_watchface="true" />
 ````
 
 In your activity:
