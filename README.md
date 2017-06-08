@@ -13,7 +13,7 @@ This is a super easy to implement and highly customizable analog clock library
 Add this to your app build.gradle file
 ```` gradle
 dependencies {
-    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.04'
+    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.1'
 }
 ````
 
@@ -39,6 +39,16 @@ customAnalogClock.setAutoUpdate(true);
 <img src="http://i.imgur.com/mb08zMF.png" alt="Drawing" width="400" />
 
 # Customization
+To adjust the size of the clock
+```java 
+setScale(float scale)
+``` 
+So for example
+```java 
+setScale(0.5f) //to make the clock smaller
+setScale(2f) //to make the clock larger
+``` 
+
 You can completely change the look of the widget by using the init function:
 ```java 
 init(Context context, @DrawableRes int watchFace, @DrawableRes int hourHand, @DrawableRes int minuteHand, int alpha, boolean is24, boolean hourOnTop)
