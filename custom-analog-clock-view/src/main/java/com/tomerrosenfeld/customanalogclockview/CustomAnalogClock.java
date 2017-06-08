@@ -34,6 +34,8 @@ public class CustomAnalogClock extends View {
     private Calendar mCalendar;
     private Drawable mFace;
     private int mDialWidth;
+    private float sizeScale = 1f;
+    private int radius;
     private int mDialHeight;
     private int mBottom;
     private int mTop;
@@ -45,19 +47,47 @@ public class CustomAnalogClock extends View {
 
     public CustomAnalogClock(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context, R.drawable.default_face, R.drawable.default_hour_hand, R.drawable.default_minute_hand, 0, false, false);
+        handleAttrs(context, attrs);
     }
 
     public CustomAnalogClock(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, R.drawable.default_face, R.drawable.default_hour_hand, R.drawable.default_minute_hand, 0, false, false);
+        handleAttrs(context, attrs);
     }
 
     public CustomAnalogClock(Context context) {
         super(context);
+        init(context);
+    }
+
+    private void handleAttrs(Context context, AttributeSet attrs) {
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CustomAnalogClock, 0, 0);
+        if (typedArray.hasValue(R.styleable.CustomAnalogClock_default_watchface)) {
+            if (!typedArray.getBoolean(R.styleable.CustomAnalogClock_default_watchface, true)) {
+                typedArray.recycle();
+                return;
+            }
+        }
+        init(context);
+        typedArray.recycle();
+    }
+
+    public void init(Context context) {
         init(context, R.drawable.default_face, R.drawable.default_hour_hand, R.drawable.default_minute_hand, 0, false, false);
     }
 
+    /**
+     * Will set the scale of the view, for example 0.5f will draw the clock with half of its radius
+     *
+     * @param scale the scale to render the view in
+     */
+    public void setScale(float scale) {
+        if (scale <= 0)
+            throw new IllegalArgumentException("Scale must be bigger than 0");
+        this.sizeScale = scale;
+        mHandsOverlay.withScale(sizeScale);
+        invalidate();
+    }
 
     public void setFace(int drawableRes) {
         final Resources r = getResources();
@@ -66,23 +96,19 @@ public class CustomAnalogClock extends View {
 
     public void init(Context context, @DrawableRes int watchFace, @DrawableRes int hourHand, @DrawableRes int minuteHand, int alpha, boolean is24, boolean hourOnTop) {
         CustomAnalogClock.is24 = is24;
-        final TypedArray attrs = context.obtainStyledAttributes(attributeSet, R.styleable.CustomAnalogClock, defStyle, 0);
-        Drawable face = attrs.getDrawable(R.styleable.CustomAnalogClock_face);
-        Drawable Hhand = attrs.getDrawable(R.styleable.CustomAnalogClock_hour_hand);
-        Drawable Mhand = attrs.getDrawable(R.styleable.CustomAnalogClock_minute_hand);
 
         CustomAnalogClock.hourOnTop = hourOnTop;
         setFace(watchFace);
-        Hhand = context.getResources().getDrawable(hourHand);
+        Drawable Hhand = context.getResources().getDrawable(hourHand);
         assert Hhand != null;
         if (alpha > 0)
             Hhand.setAlpha(alpha);
 
-        Mhand = context.getResources().getDrawable(minuteHand);
+        Drawable Mhand = context.getResources().getDrawable(minuteHand);
 
         mCalendar = Calendar.getInstance();
 
-        mHandsOverlay = new HandsOverlay(Hhand, Mhand);
+        mHandsOverlay = new HandsOverlay(Hhand, Mhand).withScale(sizeScale);
     }
 
     public void setFace(Drawable face) {
@@ -90,6 +116,7 @@ public class CustomAnalogClock extends View {
         mSizeChanged = true;
         mDialHeight = mFace.getIntrinsicHeight();
         mDialWidth = mFace.getIntrinsicWidth();
+        radius = Math.max(mDialHeight, mDialWidth);
 
         invalidate();
     }
@@ -163,8 +190,8 @@ public class CustomAnalogClock extends View {
         final int cX = availW / 2;
         final int cY = availH / 2;
 
-        final int w = mDialWidth;
-        final int h = mDialHeight;
+        final int w = (int) (mDialWidth * sizeScale);
+        final int h = (int) (mDialHeight * sizeScale);
 
         boolean scaled = false;
 
@@ -197,46 +224,24 @@ public class CustomAnalogClock extends View {
     // from AnalogClock.java
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
-        final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        final int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        final int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-
-        float hScale = 1.0f;
-        float vScale = 1.0f;
-
-        if (widthMode != MeasureSpec.UNSPECIFIED && widthSize < mDialWidth) {
-            hScale = (float) widthSize / (float) mDialWidth;
-        }
-
-        if (heightMode != MeasureSpec.UNSPECIFIED && heightSize < mDialHeight) {
-            vScale = (float) heightSize / (float) mDialHeight;
-        }
-
-        final float scale = Math.min(hScale, vScale);
-
-        setMeasuredDimension(
-                getDefaultSize((int) (mDialWidth * scale), widthMeasureSpec),
-                getDefaultSize((int) (mDialHeight * scale), heightMeasureSpec));
+        final int finalRadius = (int) (radius * sizeScale);
+        setMeasuredDimension(finalRadius, finalRadius);
     }
 
     @Override
     protected int getSuggestedMinimumHeight() {
-        return mDialHeight;
+        return (int) (mDialHeight * sizeScale);
     }
 
     @Override
     protected int getSuggestedMinimumWidth() {
-        return mDialWidth;
+        return (int) (mDialWidth * sizeScale);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right,
                             int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-
-        // because we don't have access to the actual protected fields
         mRight = right;
         mLeft = left;
         mTop = top;

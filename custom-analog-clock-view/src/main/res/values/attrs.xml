@@ -4,5 +4,6 @@
         <attr name="face" format="reference" />
         <attr name="minute_hand" format="reference" />
         <attr name="hour_hand" format="reference" />
+        <attr name="default_watchface" format="boolean" />
     </declare-styleable>
 </resources>

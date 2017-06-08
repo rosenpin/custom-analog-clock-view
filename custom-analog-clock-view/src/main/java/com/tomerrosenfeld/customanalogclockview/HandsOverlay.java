@@ -18,6 +18,7 @@ public class HandsOverlay implements DialOverlay {
     private float mHourRot;
     private float mMinRot;
     private boolean mShowSeconds;
+    private float scale;
 
     public HandsOverlay(Context context, boolean useLargeFace) {
         final Resources r = context.getResources();
@@ -33,6 +34,10 @@ public class HandsOverlay implements DialOverlay {
 
         mHour = hourHand;
         mMinute = minuteHand;
+    }
+    public HandsOverlay withScale(float scale){
+        this.scale = scale;
+        return this;
     }
 
     public HandsOverlay(Context context, int hourHandRes, int minuteHandRes) {
@@ -74,8 +79,8 @@ public class HandsOverlay implements DialOverlay {
         canvas.rotate(mMinRot, cX, cY);
 
         if (sizeChanged) {
-            w = mMinute.getIntrinsicWidth();
-            h = mMinute.getIntrinsicHeight();
+            w = (int) (mMinute.getIntrinsicWidth() * scale);
+            h = (int) (mMinute.getIntrinsicHeight() * scale);
             mMinute.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
         }
         mMinute.draw(canvas);
@@ -86,8 +91,8 @@ public class HandsOverlay implements DialOverlay {
         canvas.rotate(mHourRot, cX, cY);
 
         if (sizeChanged) {
-            w = mHour.getIntrinsicWidth();
-            h = mHour.getIntrinsicHeight();
+            w = (int) (mHour.getIntrinsicWidth()* scale);
+            h = (int) (mHour.getIntrinsicHeight()* scale);
             mHour.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
         }
         mHour.draw(canvas);
