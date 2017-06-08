@@ -29,8 +29,6 @@ public class CustomAnalogClock extends View {
     public static boolean is24;
     public static boolean hourOnTop;
     private final ArrayList<DialOverlay> mDialOverlay = new ArrayList<DialOverlay>();
-    AttributeSet attributeSet;
-    int defStyle;
     private Calendar mCalendar;
     private Drawable mFace;
     private int mDialWidth;
@@ -58,6 +56,12 @@ public class CustomAnalogClock extends View {
     public CustomAnalogClock(Context context) {
         super(context);
         init(context);
+    }
+
+    public CustomAnalogClock(Context context, boolean defaultWatchFace) {
+        super(context);
+        if (defaultWatchFace)
+            init(context);
     }
 
     private void handleAttrs(Context context, AttributeSet attrs) {
