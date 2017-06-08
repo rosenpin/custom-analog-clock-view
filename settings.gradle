@@ -1,1 +1,1 @@
-include ':app', ':custom-analog-clock-view'
+include ':app', ':library'
