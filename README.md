@@ -2,7 +2,6 @@
 
 [![JitPack](https://jitpack.io/v/rosenpin/custom-analog-clock-view.svg)](https://jitpack.io/#rosenpin/custom-analog-clock-view)
 [![Download](https://api.bintray.com/packages/rosenpin/maven/custom-analog-clock-view/images/download.svg) ](https://bintray.com/rosenpin/maven/custom-analog-clock-view/_latestVersion)
-[![Build Status](https://travis-ci.org/rosenpin/custom-analog-clock-view.svg?branch=master)](https://travis-ci.org/rosenpin/custom-analog-clock-view)
 <a target="_blank" href="https://www.paypal.me/rosenfeldtomer" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
 
 Based on [xxv](https://github.com/xxv)/[24AnalogWidget](https://github.com/xxv/24hAnalogWidget)
@@ -13,7 +12,7 @@ This is a super easy to implement and highly customizable analog clock library
 Add this to your app build.gradle file
 ```` gradle
 dependencies {
-    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.04'
+    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.1'
 }
 ````
 
@@ -24,7 +23,8 @@ In your layout:
 <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock
         android:id="@+id/analog_clock"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" 
+        app:default_watchface="true" />
 ````
 
 In your activity:
@@ -39,6 +39,16 @@ customAnalogClock.setAutoUpdate(true);
 <img src="http://i.imgur.com/mb08zMF.png" alt="Drawing" width="400" />
 
 # Customization
+To adjust the size of the clock
+```java 
+setScale(float scale)
+``` 
+So for example
+```java 
+setScale(0.5f) //to make the clock smaller
+setScale(2f) //to make the clock larger
+``` 
+
 You can completely change the look of the widget by using the init function:
 ```java 
 init(Context context, @DrawableRes int watchFace, @DrawableRes int hourHand, @DrawableRes int minuteHand, int alpha, boolean is24, boolean hourOnTop)
